@@ -4,7 +4,7 @@ import ollama
 # Load the dataset
 
 dataset = []
-with open('/home/cytech/Ing3/HP/Projet LLM/Documents transformés en texte file/RESULT_Deep Learning with Pyth', 'r') as file:
+with open('Documents_transfo_texte_file/RESULT_Deep Learning with Pyth', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
