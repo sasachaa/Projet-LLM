@@ -49,7 +49,7 @@ def retrieve(query, top_n=3):
 # Chatbot
 
 input_query = input('Ask me a question: ')
-t0 = time.clock()
+t0 = time.time()
 retrieved_knowledge = retrieve(input_query)
 
 
