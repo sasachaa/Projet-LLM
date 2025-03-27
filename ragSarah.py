@@ -1,9 +1,5 @@
 import ollama
 
-from split_inchunck import CharacterTextSplitter
-
-
-
 # Load the dataset
 
 dataset = []
