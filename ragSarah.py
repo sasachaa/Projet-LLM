@@ -69,6 +69,8 @@ def retrieve(query, top_n=3):
   # temporary list to store (chunk, similarity) pairs
   similarities = []
   for chunk, embedding in VECTOR_DB:
+    print(embedding)
+    print(query_embedding)
     similarity = cosine_similarity(query_embedding, embedding)
     similarities.append((chunk, similarity))
   # sort by similarity in descending order, because higher similarity means more relevant chunks
