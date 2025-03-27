@@ -1,10 +1,12 @@
 import ollama
 
+PDF_OCR = 'https://huggingface.co/spaces/pszemraj/pdf-ocr/resolve/main/pdf2text.py'
+
 
 # Load the dataset
 
 dataset = []
-with open('Documents_transfo_texte_file/RESULT_Deep Learning with Pyth', 'r') as file:
+with open('RESULT_Deep_Learning_with_Pyth.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
