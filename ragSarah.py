@@ -1,9 +1,13 @@
 import ollama
 import time
+from transformers import AutoTokenizer, AutoModel
+import torch
 # Load the dataset
 
+
+
 dataset = []
-with open('cat-facts.txt', 'r') as file:
+with open('chunk_copy.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
@@ -11,15 +15,43 @@ with open('cat-facts.txt', 'r') as file:
 
 # Implement the retrieval system
 
-EMBEDDING_MODEL = 'hf.co/CompendiumLabs/bge-base-en-v1.5-gguf'
 LANGUAGE_MODEL = 'hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF'
 
 # Each element in the VECTOR_DB will be a tuple (chunk, embedding)
 # The embedding is a list of floats, for example: [0.1, 0.04, -0.34, 0.21, ...]
 VECTOR_DB = []
 
+def get_embeddings(sentences, model_name="sentence-transformers/all-MiniLM-L6-v2"):
+    """
+    Generate sentence embeddings using a Hugging Face model.
+   
+    :param sentences: List of sentences to encode
+    :param model_name: Name of the pre-trained model
+    :return: Tensor of sentence embeddings
+    """
+    # Load tokenizer and model
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModel.from_pretrained(model_name)
+   
+    # Tokenize input texts
+    inputs = tokenizer(sentences, padding=True, truncation=True, return_tensors="pt")
+   
+    # Perform inference
+    with torch.no_grad():
+        outputs = model(**inputs)
+   
+    # Extract embeddings (mean pooling over the last hidden state)
+    embeddings = outputs.last_hidden_state.mean(dim=1)
+   
+    return embeddings
+
+if __name__ == "__main__":
+    sentences = [dataset]
+   
+
+
 def add_chunk_to_database(chunk):
-  embedding = ollama.embed(model=EMBEDDING_MODEL, input=chunk)['embeddings'][0]
+  embedding = get_embeddings(sentences)[0]
   VECTOR_DB.append((chunk, embedding))
 
 for i, chunk in enumerate(dataset):
@@ -32,8 +64,9 @@ def cosine_similarity(a, b):
   norm_b = sum([x ** 2 for x in b]) ** 0.5
   return dot_product / (norm_a * norm_b)
 
+
 def retrieve(query, top_n=3):
-  query_embedding = ollama.embed(model=EMBEDDING_MODEL, input=query)['embeddings'][0]
+  query_embedding = get_embeddings(query)[0]
   # temporary list to store (chunk, similarity) pairs
   similarities = []
   for chunk, embedding in VECTOR_DB:
