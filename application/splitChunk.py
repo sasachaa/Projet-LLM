@@ -30,6 +30,7 @@ def main(
     Returns:
         str: Chemin absolu du fichier chunks généré.
     """
+    txt_input_path = "RESULT_DL-Exemple_OCR.txt"
     # Vérifie que c'est bien un fichier .txt
     input_path = Path(txt_input_path)
     if input_path.suffix.lower() != ".txt":
