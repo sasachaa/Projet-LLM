@@ -8,6 +8,8 @@ import logging
 import time
 import contextlib
 from pathlib import Path
+import nltk
+import torch
 
 # 1) Importer les fonctions d'un autre fichier (pdf2text.py)
 #    C'est ici qu'on appelle convert_PDF_to_Text, rm_local_text_files
@@ -17,8 +19,7 @@ from PdfToText import (
     ocr_predictor
 )
 
-import nltk
-import torch
+
 
 logging.basicConfig(
     level=logging.INFO,

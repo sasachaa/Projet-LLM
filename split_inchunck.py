@@ -13,5 +13,5 @@ with open("cat-facts.txt", "r", encoding="utf-8") as f:
 
 chunk = text_splitter.split_text(content)
 
-with open('chunk.txt2', 'w', encoding='utf-8') as f:
+with open('chunk.txt', 'w', encoding='utf-8') as f:
     f.write('\n'.join(chunk))
