@@ -22,7 +22,7 @@ from transformers import AutoTokenizer, AutoModel
 # -------------------------
 # Paramètres par défaut
 # -------------------------
-DEFAULT_CHUNK_FILE = "chunk_copy.txt"
+DEFAULT_CHUNK_FILE = "RESULT_DL-Exemple_OCR.txt"
 DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 DEFAULT_LANGUAGE_MODEL = "hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF"
 
