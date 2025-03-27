@@ -100,7 +100,7 @@ if __name__ == "__main__":
         )
 
     # Path to pdf
-    example_pdf = Path(__file__).parent / "Documents_PDF/Deep Learning with Python, François Chollet-min.pdf"
+    example_pdf = Path(__file__).parent / "Documents_PDF/DL-Exemple.pdf"
     example_pdf = str(example_pdf.resolve())
 
     # Exécution du script sur ce PDF en le limitant à 20 pages
