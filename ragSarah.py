@@ -54,14 +54,14 @@ retrieved_knowledge = retrieve(input_query)
 
 
 print('Retrieved knowledge:')
-t1 = time.clock()
+t1 = time.time()
 for chunk, similarity in retrieved_knowledge:
   print(f' - (similarity: {similarity:.2f}) {chunk}')
 
 context_chunks = '\n'.join([f' - {chunk}' for chunk, similarity in retrieved_knowledge])
 instruction_prompt = f'''You are a helpful chatbot. Use only the following pieces of context to answer the question. Don't make up any new information: 
 {context_chunks}'''
-t2 = time.clock()
+t2 = time.time()
 
 stream = ollama.chat(
   model=LANGUAGE_MODEL,
@@ -71,7 +71,7 @@ stream = ollama.chat(
   ],
   stream=True,
 )
-t3 = time.clock()
+t3 = time.time()
 
 # print the response from the chatbot in real-time
 print('Chatbot response:')
