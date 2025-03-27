@@ -7,7 +7,7 @@ import torch
 
 
 dataset = []
-with open('chunk_copy.txt', 'r') as file:
+with open('cat-facts.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
@@ -45,8 +45,7 @@ def get_embeddings(sentences, model_name="sentence-transformers/all-MiniLM-L6-v2
    
     return embeddings
 
-if __name__ == "__main__":
-    sentences = [dataset]
+sentences = [dataset]
    
 
 
