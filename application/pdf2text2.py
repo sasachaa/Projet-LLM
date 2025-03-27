@@ -409,7 +409,7 @@ if __name__ == "__main__":
     logging.info(f"GPU disponible: {use_gpu}")
 
     # Exemple local
-    example_pdf = Path(__file__).parent / "Documents_PDF" / "DL-Exemple.pdf"
+    example_pdf = Path(__file__).parent / "DL-Exemple.pdf"
     example_pdf = str(example_pdf.resolve())
 
     # Appel de main()
