@@ -50,7 +50,7 @@ sentences = [dataset]
 
 
 def add_chunk_to_database(chunk):
-  embedding = get_embeddings(sentences)[0]
+  embedding = get_embeddings(sentences[0])
   VECTOR_DB.append((chunk, embedding))
 
 for i, chunk in enumerate(dataset):
