@@ -1,7 +1,5 @@
 import ollama
 
-PDF_OCR = 'https://huggingface.co/spaces/pszemraj/pdf-ocr/resolve/main/pdf2text.py'
-
 from langchain.text_splitter import CharacterTextSplitter
 
 text_splitter = CharacterTextSplitter(
@@ -12,7 +10,7 @@ text_splitter = CharacterTextSplitter(
     # calculer la taille autrement, mais la valeur par défaut (len) suffit
 )
 
-with open("RESULT_Deep_Learning_with_Pyth.txt", "r", encoding="utf-8") as f:
+with open("RESULT_Deep Learning with Python, François Chollet-min_OCR.txt", "r", encoding="utf-8") as f:
     content = f.read()
 
 chunk = text_splitter.split_text(content)
@@ -21,7 +19,7 @@ chunk = text_splitter.split_text(content)
 # Load the dataset
 
 dataset = []
-with open('RESULT_Deep_Learning_with_Pyth.txt', 'r') as file:
+with open('RESULT_Deep Learning with Python, François Chollet-min_OCR.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
