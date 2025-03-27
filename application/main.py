@@ -3,7 +3,7 @@ from splitChunk import main
 from rag import main
 
 pdf_file = "DL-Exemple.pdf"
-txt_path = main(pdf_file, max_pages=20)
+txt_path = main(pdf_file,20)
 print(f"Fichier texte généré: {txt_path}")
 
 
