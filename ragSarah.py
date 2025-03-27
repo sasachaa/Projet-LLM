@@ -2,6 +2,21 @@ import ollama
 
 PDF_OCR = 'https://huggingface.co/spaces/pszemraj/pdf-ocr/resolve/main/pdf2text.py'
 
+from langchain.text_splitter import CharacterTextSplitter
+
+text_splitter = CharacterTextSplitter(
+    separator="\n",       # on coupe prioritairement sur les sauts de ligne
+    chunk_size=1000,      # taille max (en caractères)
+    chunk_overlap=0,      
+    # éventuellement un paramètre length_function, si on veut 
+    # calculer la taille autrement, mais la valeur par défaut (len) suffit
+)
+
+with open("RESULT_Deep_Learning_with_Pyth.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+
+chunk = text_splitter.split_text(content)
+
 
 # Load the dataset
 
