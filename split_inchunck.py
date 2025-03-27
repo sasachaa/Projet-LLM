@@ -8,10 +8,10 @@ text_splitter = CharacterTextSplitter(
     # calculer la taille autrement, mais la valeur par défaut (len) suffit
 )
 
-with open("RESULT_Deep Learning with Python, François Chollet-min_OCR.txt", "r", encoding="utf-8") as f:
+with open("cat-facts.txt", "r", encoding="utf-8") as f:
     content = f.read()
 
 chunk = text_splitter.split_text(content)
 
-with open('chunk.txt', 'w', encoding='utf-8') as f:
-    f.write(', '.join(chunk))
+with open('chunk.txt2', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(chunk))

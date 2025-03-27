@@ -1,9 +1,9 @@
 import ollama
-
+import time
 # Load the dataset
 
 dataset = []
-with open('chunk.txt', 'r') as file:
+with open('cat-facts.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
@@ -49,16 +49,19 @@ def retrieve(query, top_n=3):
 # Chatbot
 
 input_query = input('Ask me a question: ')
+t0 = time.clock()
 retrieved_knowledge = retrieve(input_query)
 
+
 print('Retrieved knowledge:')
+t1 = time.clock()
 for chunk, similarity in retrieved_knowledge:
   print(f' - (similarity: {similarity:.2f}) {chunk}')
 
 context_chunks = '\n'.join([f' - {chunk}' for chunk, similarity in retrieved_knowledge])
 instruction_prompt = f'''You are a helpful chatbot. Use only the following pieces of context to answer the question. Don't make up any new information: 
 {context_chunks}'''
-
+t2 = time.clock()
 
 stream = ollama.chat(
   model=LANGUAGE_MODEL,
@@ -68,9 +71,16 @@ stream = ollama.chat(
   ],
   stream=True,
 )
+t3 = time.clock()
 
 # print the response from the chatbot in real-time
 print('Chatbot response:')
 for chunk in stream:
   print(chunk['message']['content'], end='', flush=True)
 
+etape1 = t1 - t0
+etape2 = t2 - t1
+etape3 = t3 - t2
+print("étape1",etape1)
+print("étape2",etape2)
+print("étape3",etape3)
