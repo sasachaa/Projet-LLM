@@ -50,7 +50,7 @@ sentences = [dataset]
 
 
 def add_chunk_to_database(chunk):
-  embedding = get_embeddings(sentences[0])
+  embedding = get_embeddings(sentences[0])[0]
   VECTOR_DB.append((chunk, embedding))
 
 for i, chunk in enumerate(dataset):
@@ -69,8 +69,8 @@ def retrieve(query, top_n=3):
   # temporary list to store (chunk, similarity) pairs
   similarities = []
   for chunk, embedding in VECTOR_DB:
-    print(embedding)
-    print(query_embedding)
+    print(embedding.shape)
+    print(query_embedding.shape)
     similarity = cosine_similarity(query_embedding, embedding)
     similarities.append((chunk, similarity))
   # sort by similarity in descending order, because higher similarity means more relevant chunks
