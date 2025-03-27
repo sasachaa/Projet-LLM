@@ -101,7 +101,7 @@ def main(
     if not dataset_path.is_file():
         raise FileNotFoundError(f"Fichier introuvable: {chunk_file}")
 
-    with open(dataset_path, "r", encoding="utf-8") as f:
+    with open(dataset_path, "r") as f:
         dataset = f.readlines()
     print(f"Loaded {len(dataset)} entries from {dataset_path}")
 
