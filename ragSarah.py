@@ -46,7 +46,8 @@ def get_embeddings(sentences, model_name="sentence-transformers/all-MiniLM-L6-v2
     return embeddings
 
 sentences = [dataset]
-   
+
+print(sentences)
 
 def add_chunk_to_database(chunk):
   embedding = get_embeddings(sentences)[0]
