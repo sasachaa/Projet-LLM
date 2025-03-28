@@ -7,7 +7,7 @@ import torch
 
 
 dataset = []
-with open('RESULT_Deep Learning with Python, François Chollet-min_OCR.txt', 'r') as file:
+with open('test_chat_chunk.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
@@ -15,7 +15,7 @@ with open('RESULT_Deep Learning with Python, François Chollet-min_OCR.txt', 'r'
 
 # Implement the retrieval system
 
-LANGUAGE_MODEL = 'gemma3:1b-it-q4_K_M'
+LANGUAGE_MODEL = 'gemma3:1b-it-q8_0'
 
 # Each element in the VECTOR_DB will be a tuple (chunk, embedding)
 # The embedding is a list of floats, for example: [0.1, 0.04, -0.34, 0.21, ...]

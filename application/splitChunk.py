@@ -14,7 +14,7 @@ def main(
     chunk_size: int = 400,
     chunk_overlap: int = 0,
     separator: str = ".",
-    output_file: str = "chunk.txt"
+    output_file: str = "test_chat.txt"
 ) -> str:
     """
     Lit un fichier texte 'txt_input_path', le découpe en morceaux
@@ -30,7 +30,7 @@ def main(
     Returns:
         str: Chemin absolu du fichier chunks généré.
     """
-    txt_input_path = "chunk_copy.txt"
+    txt_input_path = "test_chat_copy.txt"
     # Vérifie que c'est bien un fichier .txt
     input_path = Path(txt_input_path)
     if input_path.suffix.lower() != ".txt":
