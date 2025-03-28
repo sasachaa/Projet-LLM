@@ -7,7 +7,7 @@ import torch
 
 
 dataset = []
-with open('chunk.txt', 'r') as file:
+with open('RESULT_Deep Learning with Python, François Chollet-min_OCR.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
