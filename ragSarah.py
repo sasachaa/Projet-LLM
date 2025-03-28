@@ -55,7 +55,7 @@ def add_chunk_to_database(chunk):
   
 for i, chunk in enumerate(dataset):
   #add_chunk_to_database(chunk)
-  embedding = get_embeddings(chunk)
+  embedding = get_embeddings(chunk)[0]
   VECTOR_DB.append((chunk, embedding))
   print(f'Added chunk {i+1}/{len(dataset)} to the database')
 
