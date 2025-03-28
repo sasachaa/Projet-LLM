@@ -21,7 +21,7 @@ output_chunk_file = chunk_main(
 print("Fichier généré:", output_chunk_file)
 
 # 3) Lancement du RAG
-rag_main(chunk_file=output_chunk_file)
+rag_main(dataset=output_chunk_file)
 
 # import streamlit as st
 # import os

@@ -97,9 +97,9 @@ def run_chatbot(input_query):
     print("étape3", etape3)
 
 # --- Fonction main() qui orchestre tout le pipeline ---
-def main():
+def main(dataset):
     # Charger le dataset depuis le fichier de chunks
-    dataset = load_dataset("chunk.txt")
+    dataset = load_dataset(dataset)
     
     # Construire le Vector DB avec embeddings
     build_vector_db(dataset)
