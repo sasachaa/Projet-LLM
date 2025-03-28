@@ -1,0 +1,178 @@
+On test différents modèles ollama en 1b pour optimiser la quantification : 
+Pour cela on utilise le meme fichiet test_cat_copy.txt qu'on met dans le rag.py.
+
+On va tester la durée d'executions à trois endroits différents du code. 
+on teste à l'étape 1 : temps d'execution quand on aenvoyé la question pour faire l'embedding de notre question
+A l'étape 2 :  qui est le temps d'execution pour trouver les similarité entre la query et le text. il commence à compter après qu'on ai fait l'embedding de la query et arrête le temps après le print des chunks similaires.
+étape 3 : le temps d'execution pour avoir la réponse du chat bot.
+
+
+on va tester pour ces trois modèles :
+- gemma3:1b-it-q4_K_M
+- gemma3:1b-it-fp16
+- gemma3:1b-it-q8_0
+
+on va poser les mêmes questions. 
+regarder leur similarité et leurs temps d'exécution.
+
+voici les questions que l'on va poser : 
+
+Questions avec réponse dans le texte (vérifiables) :
+
+Q1 – Origines et domestication
+
+    Question : "Depuis combien de temps et dans quel pays remontent les premières preuves de domestication du chat ?"
+    Réponse attendue : "Environ 9 000 ans en Égypte ancienne."
+    Où trouver la réponse : Dans la section Origines et domestication.
+
+Q2 – Rôle historique
+
+    Question : "Quel rôle jouait le chat dans l’Antiquité ?"
+    Réponse attendue : "Il était vénéré, considéré comme un protecteur des récoltes et des maisons, et associé à la déesse Bastet."
+    Où trouver la réponse : Dans la partie décrivant la domestication et les premières relations entre humains et chats.
+
+Q3 – Morphologie et chasse
+
+    Question : "Quelles sont deux caractéristiques physiques mentionnées dans le texte qui permettent au chat de chasser efficacement dans l'obscurité ?"
+    Réponse attendue : "Sa tête arrondie avec de grands yeux lui donnant une excellente vision nocturne, et ses vibrisses (moustaches) qui lui permettent de détecter les moindres variations dans l'air."
+    Où trouver la réponse : Dans la section Morphologie et physiologie.
+
+
+
+Questions sans réponse explicite dans le texte (pour vérifier que le modèle n’invente pas) :
+
+Q4 – Poids moyen
+
+    Question : "Quel est le poids moyen d'un chat domestique adulte ?"
+    Réponse attendue : Le texte ne fournit pas cette information.
+    But : Vérifier que le modèle indique qu'il n'a pas de donnée ou ne l'invente pas.
+
+
+
+gemma3:1b-it-fp16 : 
+
+Question : "Depuis combien de temps et dans quel pays remontent les premières preuves de domestication du chat ?"
+    
+	Retrieved knowledge:
+	- (similarity: 0.69) L’avenir des chats dans nos sociétés
+
+	- (similarity: 0.68) Les premières preuves de domestication du chat remontent à environ 9 000 ans en Égypte ancienne
+
+	- (similarity: 0.66) La santé des chats nécessite une attention régulière
+
+	Chatbot response:
+	According to the context, the first evidence of cat domestication dates back to approximately 9,000 years in ancient Egypt.
+	
+	étape1 1.5056743621826172
+	étape2 0.00014090538024902344
+	étape3 0.0017974376678466797
+	
+
+Question : "Quel rôle jouait le chat dans l’Antiquité ?"
+
+	Retrieved knowledge:
+	- (similarity: 0.72) L’avenir des chats dans nos sociétés
+
+	- (similarity: 0.70) La santé des chats nécessite une attention régulière
+
+	- (similarity: 0.66) Les chats sont réputés pour leur indépendance, mais ils possèdent également un riche répertoire de comportements sociaux et de communications. Contrairement à certaines idées reçues, ils ne sont pas des animaux solitaires par nature
+
+	Chatbot response:
+	According to the provided text, the cat’s role in antiquity was primarily that of an **independent animal**. However, it also possessed a “rich repertoire of behaviors and communications.” It wasn’t seen as a solitary creature.
+	étape1 1.991600513458252
+	étape2 0.00010728836059570312
+	étape3 0.0009253025054931641
+
+	
+	
+Question : "Quelles sont deux caractéristiques physiques mentionnées dans le texte qui permettent au chat de chasser efficacement dans l'obscurité ?"
+	Retrieved knowledge:
+	 - (similarity: 0.70) La tête du chat est souvent arrondie, avec de grands yeux qui lui confèrent une excellente vision nocturne, indispensable pour chasser dans l'obscurité.
+
+	 - (similarity: 0.65) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.65) La communication chez le chat se fait principalement par des moyens non verbaux
+
+	Chatbot response:
+	Deux caractéristiques physiques mentionnées dans le texte qui permettent au chat de chasser efficacement dans l'obscurité sont ses grands yeux qui lui confèrent une excellente vision 	nocturne.
+	étape1 1.1878459453582764
+	étape2 8.821487426757812e-05
+	étape3 0.0009903907775878906
+commentaire : il manque un bout de la réponse, on en demandait deux.
+	
+ Question : "Quel est le poids moyen d'un chat domestique adulte ?"
+ 
+ 	Retrieved knowledge:
+	 - (similarity: 0.70) Le jeu est également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes
+
+	 - (similarity: 0.69) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.68) L’avenir des chats dans nos sociétés
+
+	Chatbot response:
+	According to the text, the weight of a domestic cat adult is “également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes”. It doesn’t provide a specific weight.
+	étape1 1.128087043762207
+	étape2 0.00011324882507324219
+	étape3 0.0018084049224853516
+
+Commentaire : la réponse n'était pas dans le texte, il a répondu à côté de la plaque.
+
+gemma3:1b-it-q8_0 : 
+
+Question : "Depuis combien de temps et dans quel pays remontent les premières preuves de domestication du chat ?"
+	Retrieved knowledge:
+	 - (similarity: 0.69) L’avenir des chats dans nos sociétés
+
+	 - (similarity: 0.68) Les premières preuves de domestication du chat remontent à environ 9 000 ans en Égypte ancienne
+
+	 - (similarity: 0.66) La santé des chats nécessite une attention régulière
+
+	Chatbot response:
+	Selon les informations fournies, les premières preuves de domestication du chat remontent à environ 9 000 ans en Égypte ancienne.
+	étape1 1.1267406940460205
+	étape2 0.00022101402282714844
+	étape3 0.0029630661010742188
+
+Question : "Quel rôle jouait le chat dans l’Antiquité ?"
+	Retrieved knowledge:
+	 - (similarity: 0.72) L’avenir des chats dans nos sociétés
+
+	 - (similarity: 0.70) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.66) Les chats sont réputés pour leur indépendance, mais ils possèdent également un riche répertoire de comportements sociaux et de communications. Contrairement à certaines idées reçues, ils ne sont pas des animaux solitaires par nature
+
+	Chatbot response:
+	According to the provided context, the cat played a significant role in the ancient world, particularly as a symbol of independence but also as a social animal with a rich repertoire of behaviors.
+	étape1 1.6995282173156738
+	étape2 0.0001251697540283203
+	étape3 0.0019545555114746094
+
+Question : "Quelles sont deux caractéristiques physiques mentionnées dans le texte qui permettent au chat de chasser efficacement dans l'obscurité ?"
+
+	Retrieved knowledge:
+	 - (similarity: 0.70) La tête du chat est souvent arrondie, avec de grands yeux qui lui confèrent une excellente vision nocturne, indispensable pour chasser dans l'obscurité.
+
+	 - (similarity: 0.65) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.65) La communication chez le chat se fait principalement par des moyens non verbaux
+
+	Chatbot response:
+	Deux caractéristiques physiques mentionnées dans le texte sont ses grands yeux qui lui confèrent une excellente vision nocturne.étape1 1.9053685665130615
+	étape2 0.00014281272888183594
+	étape3 0.002218484878540039
+
+Question : "Quel est le poids moyen d'un chat domestique adulte ?"
+
+Retrieved knowledge:
+ - (similarity: 0.70) Le jeu est également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes
+
+ - (similarity: 0.69) La santé des chats nécessite une attention régulière
+
+ - (similarity: 0.68) L’avenir des chats dans nos sociétés
+
+Chatbot response:
+According to the provided text, the weight of a domestic cat adult is “également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes”. It doesn’t provide a specific weight.étape1 1.8693788051605225
+étape2 0.00010442733764648438
+étape3 0.001070261001586914
+
+
