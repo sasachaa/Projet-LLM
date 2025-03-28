@@ -8,10 +8,10 @@ text_splitter = CharacterTextSplitter(
     # calculer la taille autrement, mais la valeur par défaut (len) suffit
 )
 
-with open("cat-facts.txt", "r", encoding="utf-8") as f:
+with open("test_chat.txt", "r", encoding="utf-8") as f:
     content = f.read()
 
 chunk = text_splitter.split_text(content)
 
-with open('chunk.txt', 'w', encoding='utf-8') as f:
+with open('test_chat_chunk.txt', 'w', encoding='utf-8') as f:
     f.write('\n'.join(chunk))
