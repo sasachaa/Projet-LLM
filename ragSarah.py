@@ -54,7 +54,9 @@ def add_chunk_to_database(chunk):
     VECTOR_DB.append((chunk, embedding))
   
 for i, chunk in enumerate(dataset):
-  add_chunk_to_database(chunk)
+  #add_chunk_to_database(chunk)
+  embedding = get_embeddings(chunk)
+  VECTOR_DB.append((chunk, embedding))
   print(f'Added chunk {i+1}/{len(dataset)} to the database')
 
 def cosine_similarity(a, b):
