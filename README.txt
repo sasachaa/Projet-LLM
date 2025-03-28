@@ -1,4 +1,6 @@
 à installer sur le pod : 
+git clone https://github.com/sasachaa/Projet-LLM.git
+cd Projet-LLM
 apt update
 curl -fsSL https://ollama.com/install.sh | sh
 apt install ollama
@@ -7,10 +9,7 @@ pip install langchain
 pip install transformers
 sur un autre terminal ds le pod : ollama serve
 ollama pull hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
+pip install httpx==0.28
 
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-apt-get install unzip
-unzip ngrok-stable-linux-amd64.zip
-chmod +x ngrok
-ls -l ngrok
+
 
