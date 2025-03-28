@@ -7,7 +7,7 @@ import torch
 
 
 dataset = []
-with open('chunk_copy.txt', 'r') as file:
+with open('chunk.txt', 'r') as file:
   dataset = file.readlines()
   print(f'Loaded {len(dataset)} entries')
 
