@@ -4,7 +4,7 @@ from pdf2text2 import main as pdf2txt_main
 from splitChunk import main as chunk_main
 from rag import main as rag_main
 
-pdf_file = "chunk.pdf"
+pdf_file = "DL-Exemple.pdf"
 
 # 1) Conversion PDF -> .txt
 txt_path = pdf2txt_main(pdf_file, 20)
