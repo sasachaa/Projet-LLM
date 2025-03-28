@@ -1,6 +1,5 @@
 clean-text[gpl]
 python-doctr[torch]
-gradio==3.4.0
 libretranslatepy
 natsort
 nltk
@@ -8,3 +7,7 @@ pyspellchecker
 torch
 tqdm
 rapidfuzz==2.13.7
+ollama
+langchain
+transformers
+httpx==0.28
