@@ -51,8 +51,9 @@ sentences = [dataset]
 def add_chunk_to_database(chunk):
   embedding = get_embeddings(sentences)
   VECTOR_DB.append((chunk, embedding))
-print("coucuo")
+  
 for i, chunk in enumerate(dataset):
+  print(chunk.type)
   add_chunk_to_database(chunk)
   print(f'Added chunk {i+1}/{len(dataset)} to the database')
 
