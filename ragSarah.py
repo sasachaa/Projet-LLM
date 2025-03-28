@@ -15,7 +15,7 @@ with open('RESULT_Deep Learning with Python, François Chollet-min_OCR.txt', 'r'
 
 # Implement the retrieval system
 
-LANGUAGE_MODEL = 'gemma3:1b-it-q4_K_M'
+LANGUAGE_MODEL = 'gemma3:1b-it-fp16'
 
 # Each element in the VECTOR_DB will be a tuple (chunk, embedding)
 # The embedding is a list of floats, for example: [0.1, 0.04, -0.34, 0.21, ...]
