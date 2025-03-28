@@ -45,7 +45,7 @@ def get_embeddings(sentences, model_name="sentence-transformers/all-MiniLM-L6-v2
    
     return embeddings
 
-sentences = [dataset]
+sentences = dataset
 
 ## changer add_chunk_to_database dans la oucle car notre pb c'est qu'il prend seulement dans l'embedding la première phrase donc il faudrait l'intégrer dans la boucle for
 def add_chunk_to_database(chunk):
