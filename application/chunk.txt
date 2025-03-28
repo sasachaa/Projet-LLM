@@ -1,0 +1,59 @@
+Les chats ont une démarche bien particulière, élégante et silencieuse. Ils marchent sur la pointe des pieds, ce qu’on appelle une démarche digitigrade. Cela signifie qu’ils ne posent pas tout le pied au sol comme nous, mais uniquement les doigts. C’est pour cela que leurs mouvements sont si fluides et discrets.
+
+Quand un chat avance, il déplace ses pattes d’une manière très précise : il pose d’abord une patte arrière, puis la patte avant du même côté vient se placer exactement à l’endroit où était la patte arrière. Ensuite, il fait la même chose de l’autre côté. Cela lui permet de se déplacer sans bruit et avec beaucoup d’équilibre, ce qui est très utile pour chasser ou se faufiler discrètement.
+
+Ce mode de déplacement, que l’on retrouve aussi chez les girafes ou les chameaux, s’appelle la marche en pas direct. C’est rare chez les animaux, et cela rend les chats encore plus fascinants.
+
+Leur squelette et leurs muscles sont aussi conçus pour l’agilité : ils peuvent faire des bonds impressionnants, tourner rapidement en pleine course, et retomber sur leurs pattes grâce à un sens de l’équilibre exceptionnel.
+
+Un arbre de décision, c’est une méthode utilisée pour prendre des décisions ou classer des choses. C’est un outil qu’on retrouve souvent en informatique, statistiques ou intelligence artificielle.
+
+Comme son nom l’indique, il ressemble à un arbre, mais à l’envers :
+
+    En haut, il y a le tronc, qu’on appelle la racine. C’est là qu’on commence.
+
+    Ensuite, on suit des branches, qui correspondent à des questions ou des tests.
+
+    À la fin de chaque chemin, on arrive à une feuille, qui donne une réponse ou une décision.
+
+Un exemple concret :
+
+Imaginons qu’on veut savoir si on doit prendre un parapluie. L’arbre de décision pourrait ressembler à ça :
+
+    Est-ce qu’il pleut ?
+
+        Oui → Prendre un parapluie.
+
+        Non → Question suivante.
+
+    Est-ce que le ciel est nuageux ?
+
+        Oui → Prendre un parapluie par précaution.
+
+        Non → Pas besoin de parapluie.
+
+Chaque étape de l’arbre pose une question simple. À chaque réponse, on descend vers la suite, jusqu’à arriver à une décision.
+Et en machine learning ?
+
+En apprentissage automatique (machine learning), on utilise les arbres de décision pour apprendre à un programme à faire des choix. Par exemple, on peut lui apprendre à reconnaître si une image montre un chat ou un chien, en lui montrant plein d’exemples, et en construisant un arbre basé sur les caractéristiques (taille des oreilles, forme du museau, etc.).
+
+Les bouteilles d’eau sont des objets que presque tout le monde utilise, souvent sans trop y penser. Qu’elles soient en plastique ou en verre, elles servent à contenir et transporter de l’eau potable, pour pouvoir s’hydrater facilement, que ce soit à la maison, au travail, à l’école ou en voyage.
+D’où vient l’eau des bouteilles ?
+
+L’eau en bouteille peut venir de différentes sources :
+
+    Eau de source : elle provient directement d’une nappe souterraine et est embouteillée sans traitement chimique.
+
+    Eau minérale naturelle : elle a une composition stable en minéraux et peut avoir des bienfaits spécifiques pour la santé.
+
+    Eau purifiée : parfois, c’est de l’eau du robinet qui a été filtrée ou traitée.
+
+Les types de bouteilles
+
+    Bouteilles en plastique : légères, pratiques, mais elles posent des problèmes écologiques. Le plastique met longtemps à se dégrader et contribue à la pollution.
+
+    Bouteilles en verre : plus écologiques car réutilisables et recyclables, mais plus lourdes et fragiles.
+
+Et l’environnement ?
+
+La production et l’usage massif de bouteilles en plastique ont un impact important sur l’environnement. Beaucoup ne sont pas recyclées et finissent dans la nature, notamment dans les océans. C’est pourquoi de plus en plus de gens utilisent des gourdes réutilisables ou des carafes filtrantes pour réduire leur consommation de plastique.
