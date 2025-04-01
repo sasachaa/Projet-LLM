@@ -98,15 +98,13 @@ def run_chatbot(input_query):
     return stream
 
 # --- Fonction main() qui orchestre tout le pipeline ---
-def main(dataset):
+def main(dataset, input_query):
     # Charger le dataset depuis le fichier de chunks
     dataset = load_dataset(dataset)
     
     # Construire le Vector DB avec embeddings
     build_vector_db(dataset)
     
-    # Demander à l'utilisateur sa question
-    input_query = input("Ask me a question: ")
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
     stream = run_chatbot(input_query)
@@ -114,4 +112,4 @@ def main(dataset):
 
 # --- Exécution directe ---
 if __name__ == "__main__":
-    main()
+    stream = main()
