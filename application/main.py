@@ -26,4 +26,3 @@ stream = rag_main(dataset=output_chunk_file)
 st.title("Chatbot response:")
 for chunk_data in stream:
     st.write(chunk_data['message']['content'], end='', flush=True)
-# key = 2uv56qqmgxaDZT25DpiqPrZBXqk_2soktLPAJbN6gMh4sZqkt
