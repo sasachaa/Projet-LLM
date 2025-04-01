@@ -171,8 +171,72 @@ Retrieved knowledge:
  - (similarity: 0.68) L’avenir des chats dans nos sociétés
 
 Chatbot response:
-According to the provided text, the weight of a domestic cat adult is “également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes”. It doesn’t provide a specific weight.étape1 1.8693788051605225
+According to the provided text, the weight of a domestic cat adult is “également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes”. It doesn’t provide a specific weight.
+étape1 1.8693788051605225
 étape2 0.00010442733764648438
 étape3 0.001070261001586914
+
+gemma3:1b-it-q4_K_M :
+
+Question : "Depuis combien de temps et dans quel pays remontent les premières preuves de domestication du chat ?"
+
+	Retrieved knowledge:
+	 - (similarity: 0.69) L’avenir des chats dans nos sociétés
+
+	 - (similarity: 0.68) Les premières preuves de domestication du chat remontent à environ 9 000 ans en Égypte ancienne
+
+	 - (similarity: 0.66) La santé des chats nécessite une attention régulière
+
+	Chatbot response:
+	According to the provided text, the earliest evidence of cat domestication dates back to approximately 9,000 years ago in ancient Egypt.
+	étape1 1.3789432048797607
+	étape2 0.00022101402282714844
+	étape3 0.001796722412109375
+	
+Question : "Quel rôle jouait le chat dans l’Antiquité ?"
+
+	Retrieved knowledge:
+	 - (similarity: 0.72) L’avenir des chats dans nos sociétés
+
+	 - (similarity: 0.70) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.66) Les chats sont réputés pour leur indépendance, mais ils possèdent également un riche répertoire de comportements sociaux et de communications. Contrairement à certaines idées reçues, ils ne sont pas des animaux solitaires par nature
+
+	Chatbot response:
+	According to the provided text, the text does not provide information about the role of cats in antiquity.
+	étape1 1.1811258792877197
+	étape2 8.654594421386719e-05
+	étape3 0.0011930465698242188
+
+
+ Question : "Quelles sont deux caractéristiques physiques mentionnées dans le texte qui permettent au chat de chasser efficacement dans l'obscurité ?"
+ 
+	 Retrieved knowledge:
+	 - (similarity: 0.70) La tête du chat est souvent arrondie, avec de grands yeux qui lui confèrent une excellente vision nocturne, indispensable pour chasser dans l'obscurité.
+
+	 - (similarity: 0.65) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.65) La communication chez le chat se fait principalement par des moyens non verbaux
+
+	Chatbot response:
+	Selon le texte, deux caractéristiques physiques permettent au chat de chasser efficacement dans l'obscurité sont ses grands yeux et son excellent vision nocturne.
+	étape1 1.2417068481445312
+	étape2 6.771087646484375e-05
+	étape3 0.0008323192596435547
+
+Question : "Quel est le poids moyen d'un chat domestique adulte ?"
+
+	Retrieved knowledge:
+	 - (similarity: 0.70) Le jeu est également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes
+
+	 - (similarity: 0.69) La santé des chats nécessite une attention régulière
+
+	 - (similarity: 0.68) L’avenir des chats dans nos sociétés
+
+	Chatbot response:
+	According to the provided text, the weight of a domestic cat is “également un comportement essentiel chez le chat, tant pour les jeunes que pour les adultes”. However, it doesn’t provide a specific weight.
+	étape1 1.017512559890747
+	étape2 0.0001201629638671875
+	étape3 0.0020148754119873047
 
 

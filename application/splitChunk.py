@@ -30,7 +30,7 @@ def main(
     Returns:
         str: Chemin absolu du fichier chunks généré.
     """
-    txt_input_path = "test_chat_copy.txt"
+    #txt_input_path = "test_chat_copy.txt"
     # Vérifie que c'est bien un fichier .txt
     input_path = Path(txt_input_path)
     if input_path.suffix.lower() != ".txt":
