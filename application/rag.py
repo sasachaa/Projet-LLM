@@ -106,7 +106,7 @@ def main(dataset):
     build_vector_db(dataset)
     
     # Demander à l'utilisateur sa question
-    input_query = st.chat_input("Ask me a question: ")
+    input_query = st.text_input("Ask me a question: ")
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
     stream = run_chatbot(input_query)
