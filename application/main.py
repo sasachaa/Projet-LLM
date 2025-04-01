@@ -3,12 +3,13 @@
 from pdf2text2 import main as pdf2txt_main
 from splitChunk import main as chunk_main
 from rag import main as rag_main
+import streamlit as st
 
 pdf_file = "DL-Exemple.pdf"
 
 # 1) Conversion PDF -> .txt
 txt_path = pdf2txt_main(pdf_file, 20)
-print(f"Fichier texte généré: {txt_path}")
+st.write(f"Fichier texte généré: {txt_path}")
 
 # 2) Découpe en chunks
 output_chunk_file = chunk_main(
@@ -18,11 +19,13 @@ output_chunk_file = chunk_main(
     separator=".",
     output_file="chunk.txt"
 )
-print("Fichier généré:", output_chunk_file)
+st.write("Fichier généré:", output_chunk_file)
 
 # 3) Lancement du RAG
-rag_main(dataset=output_chunk_file)
-
+stream = rag_main(dataset=output_chunk_file)
+st.title("Chatbot response:")
+for chunk_data in stream:
+    st.write(chunk_data['message']['content'], end='', flush=True)
 # import streamlit as st
 # import os
 # from pathlib import Path

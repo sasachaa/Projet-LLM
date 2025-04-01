@@ -95,6 +95,7 @@ def run_chatbot(input_query):
     print("étape1", etape1)
     print("étape2", etape2)
     print("étape3", etape3)
+    return stream
 
 # --- Fonction main() qui orchestre tout le pipeline ---
 def main(dataset):
@@ -108,7 +109,8 @@ def main(dataset):
     input_query = input("Ask me a question: ")
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
-    run_chatbot(input_query)
+    stream = run_chatbot(input_query)
+    return stream
 
 # --- Exécution directe ---
 if __name__ == "__main__":

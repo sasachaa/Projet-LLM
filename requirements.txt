@@ -11,3 +11,4 @@ ollama
 langchain
 transformers
 httpx==0.28
+streamlit
