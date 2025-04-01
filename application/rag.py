@@ -2,7 +2,7 @@ import ollama
 import time
 from transformers import AutoTokenizer, AutoModel
 import torch
-import streamlit as st
+
 # --- Chargement du dataset depuis "chunk.txt" ---
 def load_dataset(file_path="chunk.txt"):
     dataset = []
@@ -98,7 +98,7 @@ def run_chatbot(input_query):
     return stream
 
 # --- Fonction main() qui orchestre tout le pipeline ---
-def main(dataset):
+def main(dataset, input_query):
     # Charger le dataset depuis le fichier de chunks
     dataset = load_dataset(dataset)
     
@@ -106,7 +106,10 @@ def main(dataset):
     build_vector_db(dataset)
     
     # Demander à l'utilisateur sa question
-    input_query = st.text_input("Ask me a question: ")
+    input_query = None
+    while input_query == None : 
+        input_query = input("Ask me a question: ")
+    
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
     stream = run_chatbot(input_query)
