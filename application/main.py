@@ -27,5 +27,5 @@ stream = None
 stream = rag_main(output_chunk_file, query)
 st.title("Chatbot response:")
 if stream : 
-    st.write_stream(stream)
+    st.write(stream)
 
