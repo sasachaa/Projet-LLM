@@ -5,7 +5,7 @@ apt update
 curl -fsSL https://ollama.com/install.sh | sh
 apt install ollama
 
-sur un autre terminal ds le pod : ollama serve
+sur un autre terminal ds le pod :   ollama serve
 ollama pull hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF
 
 apt-get install libpango1.0-0

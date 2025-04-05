@@ -22,9 +22,9 @@ output_chunk_file = chunk_main(
 st.write("Fichier généré:", output_chunk_file)
 
 # 3) Lancement du RAG
+query = st.input("Query")
 
-
-stream = rag_main(dataset=output_chunk_file)
+stream = rag_main(output_chunk_file, query)
 st.title("Chatbot response:")
 for chunk_data in stream:
     st.write(chunk_data['message']['content'], end='', flush=True)
