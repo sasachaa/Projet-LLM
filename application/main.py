@@ -39,11 +39,11 @@ if uploaded_file:
 
         st.markdown("### 🤖 Réponse du chatbot")
         response = ""
-        placeholder = st.empty()
+        
 
         for chunk_data in stream:
             content = chunk_data['message']['content']
             response += content
-            placeholder.markdown(response)
+
 
 
