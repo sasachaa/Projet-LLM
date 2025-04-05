@@ -26,7 +26,8 @@ query = st.text_input("Query")
 
 stream = rag_main(output_chunk_file, query)
 st.title("Chatbot response:")
-st.write(stream)
+
 for chunk_data in stream:
     st.write(chunk_data['message']['content'], end='', flush=True)
+    print(chunk_data['message']['content'], end='', flush=True)
 

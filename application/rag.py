@@ -110,7 +110,6 @@ def main(dataset, input_query):
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
     stream = run_chatbot(input_query)
-    print(f"Stream {stream}")
     return stream
 
 # --- Exécution directe ---
