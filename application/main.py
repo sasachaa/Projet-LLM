@@ -20,7 +20,7 @@ output_chunk_file = chunk_main(
     output_file="chunk.txt"
 )
 st.write("Fichier généré:", output_chunk_file)
-
+print("Avant erreur ")
 # 3) Lancement du RAG
 query = st.text_input("Query")
 if query != None : 
