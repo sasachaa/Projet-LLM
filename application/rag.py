@@ -105,10 +105,7 @@ def main(dataset, input_query):
     # Construire le Vector DB avec embeddings
     build_vector_db(dataset)
     
-    # Demander à l'utilisateur sa question
-    input_query = None
-    while input_query == None : 
-        input_query = input("Ask me a question: ")
+
     
     
     # Exécuter le chatbot pour récupérer et afficher la réponse
