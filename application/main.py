@@ -41,9 +41,7 @@ if uploaded_file:
         response = ""
         
 
-        for chunk_data in stream:
-            content = chunk_data['message']['content']
-            response += content
+        st.write(stream)
 
 
 
