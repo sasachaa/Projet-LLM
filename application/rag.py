@@ -96,7 +96,7 @@ def run_chatbot(input_query):
     print("étape1", etape1)
     print("étape2", etape2)
     print("étape3", etape3)
-    return stream
+    return response
 
 # --- Fonction main() qui orchestre tout le pipeline ---
 def main(dataset, input_query):
