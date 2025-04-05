@@ -1,31 +1,49 @@
-# main.py
-
+import streamlit as st
 from pdf2text2 import main as pdf2txt_main
 from splitChunk import main as chunk_main
 from rag import main as rag_main
-import streamlit as st
+import os
 
-pdf_file = "DL-Exemple.pdf"
+st.title("💬 Chatbot Médical (PDF)")
 
-# 1) Conversion PDF -> .txt
-txt_path = pdf2txt_main(pdf_file, 20)
-st.write(f"Fichier texte généré: {txt_path}")
+# 1) Upload du PDF par l'utilisateur
+uploaded_file = st.file_uploader("Glissez un fichier PDF ici", type=["pdf"])
 
-# 2) Découpe en chunks
-output_chunk_file = chunk_main(
-    txt_input_path=txt_path,
-    chunk_size=400,
-    chunk_overlap=0,
-    separator=".",
-    output_file="chunk.txt"
-)
-st.write("Fichier généré:", output_chunk_file)
-print("Avant erreur ")
-# 3) Lancement du RAG
-query = st.text_input("Query")
-stream = None
-stream = rag_main(output_chunk_file, query)
-st.title("Chatbot response:")
-if stream : 
-    st.write(stream)
+if uploaded_file:
+    # Enregistrement temporaire du PDF
+    with open("uploaded.pdf", "wb") as f:
+        f.write(uploaded_file.read())
+
+    st.success("✅ PDF reçu avec succès")
+
+    # 2) Conversion PDF -> TXT
+    txt_path = pdf2txt_main("uploaded.pdf", 20)
+    st.write(f"Fichier texte généré : {txt_path}")
+
+    # 3) Découpage en chunks
+    output_chunk_file = chunk_main(
+        txt_input_path=txt_path,
+        chunk_size=400,
+        chunk_overlap=0,
+        separator=".",
+        output_file="chunk.txt"
+    )
+    st.write("Fichier chunk généré :", output_chunk_file)
+
+    # 4) Zone de saisie utilisateur
+    query = st.text_input("Posez une question sur le document :")
+
+    # 5) Appel RAG + affichage dynamique
+    if query:
+        stream = rag_main(output_chunk_file, query)
+
+        st.markdown("### 🤖 Réponse du chatbot")
+        response = ""
+        placeholder = st.empty()
+
+        for chunk_data in stream:
+            content = chunk_data['message']['content']
+            response += content
+            placeholder.markdown(response)
+
 
