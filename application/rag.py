@@ -83,7 +83,7 @@ def run_chatbot(input_query):
       stream=True,
     )
     t3 = time.time()
-    
+    response = ""
     print("Chatbot response:")
     for chunk_data in stream:
         print(chunk_data['message']['content'], end='', flush=True)
