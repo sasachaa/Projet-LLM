@@ -88,7 +88,7 @@ def run_chatbot(input_query):
     for chunk_data in stream:
         print(chunk_data['message']['content'], end='', flush=True)
     print()  # saut de ligne
-    
+    print(f"TEST {chunk_data['message']['content']}")
     etape1 = t1 - t0
     etape2 = t2 - t1
     etape3 = t3 - t2
