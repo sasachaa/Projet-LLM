@@ -4,7 +4,7 @@ from splitChunk import main as chunk_main
 from rag import main as rag_main
 import os
 
-st.title("💬 Chatbot Médical (PDF)")
+st.title("💬 Chatbot : Entrez votre document (PDF) et posez les questions que vous voulez dessus (pas plus de 20 pages)")
 
 # 1) Upload du PDF par l'utilisateur
 uploaded_file = st.file_uploader("Glissez un fichier PDF ici", type=["pdf"])
@@ -14,7 +14,7 @@ if uploaded_file:
     with open("uploaded.pdf", "wb") as f:
         f.write(uploaded_file.read())
 
-    st.success("✅ PDF reçu avec succès")
+    st.success("✅ PDF reçu avec succès") 
 
     # 2) Conversion PDF -> TXT
     txt_path = pdf2txt_main("uploaded.pdf", 20)
